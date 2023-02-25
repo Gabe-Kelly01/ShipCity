@@ -3,6 +3,8 @@ File containing all methods for board generation.
 Methods take the form of generators for easy looping.
 """
 from constants import *
+import numpy as np
+
 
 # This function generates flattened boards of length n^2
 # params:
@@ -23,15 +25,14 @@ def generateFlatBoards(prefix, numNodes):
 def generateBoards(n):
     for flatBoard in generateFlatBoards("", n * n):
         board = [flatBoard[i * n:(i + 1) * n] for i in range((len(flatBoard) + n - 1) // n)]
-        yield board
+        board = [[val for val in row] for row in board]
+        yield np.asarray(board)
 
 
 # Testing function
 def main():
-    for b in generateBoards(3):
-        assert(all([len(row) == 3 for row in b]))
-        print('\n'.join([''.join(['{:1}'.format(item) for item in row])
-                         for row in b]))
+    for b in generateBoards(2):
+        print(b)
         print("-----")
 
 
