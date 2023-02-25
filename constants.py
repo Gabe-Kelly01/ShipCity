@@ -1,0 +1,9 @@
+EDGE = "*"
+OPEN = " "
+NORTH = "^"
+EAST = ">"
+SOUTH = "v"
+WEST = "v"
+
+GENERATOR_SET = [NORTH, SOUTH, EAST, WEST, OPEN]
+GENERATOR_SET_SIZE = 5
