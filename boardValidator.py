@@ -11,6 +11,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
+# Check if a board is a valid configuration
+def isValidConfiguration(board):
+    return checkIsWalkable(board) and checkIsUnpackable(board)
+
+
 # Checks if the board is walkable by converting it to a graph and then
 # checking if the graph is fully connected
 def checkIsWalkable(board):
