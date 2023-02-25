@@ -31,6 +31,7 @@ def generateBoards(n):
 # Testing function
 def main():
     for b in generateBoards(3):
+        assert(all([len(row) == 3 for row in b]))
         print('\n'.join([''.join(['{:1}'.format(item) for item in row])
                          for row in b]))
         print("-----")
