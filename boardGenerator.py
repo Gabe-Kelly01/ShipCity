@@ -3,8 +3,6 @@ File containing all methods for board generation.
 Methods take the form of generators for easy looping.
 """
 from constants import *
-import numpy as np
-
 
 # This function generates flattened boards of length n^2
 # params:
