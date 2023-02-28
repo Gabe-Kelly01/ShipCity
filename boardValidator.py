@@ -24,6 +24,13 @@ def checkIsWalkable(board):
 
 
 def checkIsUnpackable(board):
+    print(board)
+    r, c = board.shape
+    edgeBoard = np.full((r + 2, c + 2), EDGE)
+
+    _, k = edgeBoard.shape
+    edgeBoard[1:k - 1, 1:k - 1] = board
+    print(edgeBoard)
     return
 
 
@@ -45,9 +52,9 @@ def toUndirectedGraph(board):
     print(board.shape)
     boardAdjMat = createAdjMat(board)
     graph = nx.from_numpy_array(boardAdjMat)
-    # pos = nx.circular_layout(graph)
-    # nx.draw(graph)
-    # plt.show()
+    pos = nx.circular_layout(graph)
+    nx.draw(graph, pos=pos)
+    plt.show()
 
     return graph
 
@@ -81,12 +88,12 @@ def getOffsetIndices(idx, dim):
 
 
 def main():
-    result = checkIsWalkable(np.asarray([[NORTH, NORTH, NORTH, NORTH],
-                                         [WEST, OPEN, OPEN, EAST],
-                                         [WEST, OPEN, OPEN, EAST],
-                                         [SOUTH, SOUTH, SOUTH, SOUTH]]))
+    checkIsUnpackable(np.asarray([[NORTH, NORTH, NORTH, NORTH],
+                                  [WEST, OPEN, OPEN, EAST],
+                                  [WEST, OPEN, OPEN, EAST],
+                                  [SOUTH, SOUTH, SOUTH, SOUTH]]))
 
-    print("Board {} walkable".format("is" if result else "is not"))
+    # print("Board {} walkable".format("is" if result else "is not"))
 
 
 if __name__ == '__main__':

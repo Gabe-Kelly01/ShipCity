@@ -3,7 +3,7 @@ OPEN = " "
 NORTH = "^"
 EAST = ">"
 SOUTH = "v"
-WEST = "v"
+WEST = "<"
 
 GENERATOR_SET = [NORTH, SOUTH, EAST, WEST, OPEN]
 GENERATOR_SET_SIZE = 5
